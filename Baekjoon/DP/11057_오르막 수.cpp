@@ -5,66 +5,42 @@
 
 using namespace std;
 
-long long int Data[1000];
-
-// TopDown
-int TopDown(int n, vector<vector<int>>& arr) {
-	
-	long long int tempData = 0;
-
-	if (n == 1) {
-		return Data[0];
-	}
-
-	if (Data[n - 1] == 0) {
-		for (int i = 0; i < 10; i++) {
-			
-		}
-	}
-
-	return Data[n - 1];
-}
-
-// BottomUp
-int BottomUp(int n, vector<vector<int>>& arr) {
-
-	int tempData;
-
-	for (int i = 1; i < n; i++) {
-		Data[i] = 0;
-
-		for (int j = 0; j < 10; j++) {
-
-			tempData = 0;
-
-			for (int k = j; k < 10; k++) {
-				tempData += arr[i - 1][k];
-				arr[i][j] = tempData;
-			}
-
-			Data[i] += arr[i][j];
-		}
-
-		Data[i] %= 10007;
-	}
-
-	return Data[n - 1];
-}
+vector<int> data(1000);
 
 int main() {
 
 	int N;
-
 	cin >> N;
 
-	vector <vector <int>> arr(N, vector <int>(10));
+	vector<vector<int>> arr(N);
+	vector<int> tempArr(10, 1);
+	arr[0] = tempArr;
 
-	for (int i = 0; i < 10; i++) {
-		arr[0][i] = 1;
+	int tempData;
+
+	// BottomUp
+	for (int i = 1; i < N; i++) {
+		tempArr.clear();
+
+		for (int j = 0; j < 10; j++) {
+			tempData = 0;
+
+			for (int k = j; k < 10; k++) {
+				tempData += arr[i - 1][k] % 10007;
+			}
+
+			tempArr.push_back(tempData % 10007);
+		}
+
+		arr[i] = tempArr;
 	}
-	Data[0] = 10;
 
-	cout << BottomUp(N, arr);
+	int result = 0;
+	for (int i = 0; i < 10; i++) {
+		result += arr[N - 1][i];
+	}
+
+	cout << result % 10007;
 
 	return 0;
 }
