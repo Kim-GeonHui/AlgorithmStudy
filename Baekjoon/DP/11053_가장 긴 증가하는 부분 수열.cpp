@@ -12,59 +12,48 @@ int main() {
 	int N;
 	cin >> N;
 
-	vector<vector<int>> data(N);
-	vector<int> tempData;
-
-	vector<vector<int>> maxData(N);
-	vector<int> tempMaxData;
-
-	vector <int> arr(N);
-
+	vector<int> numberArr(N);
 	for (int i = 0; i < N; i++) {
-		cin >> arr[i];
+		cin >> numberArr[i];
 	}
 
-	tempData.push_back(0);
-	tempData.push_back(1);
+	vector<vector<int>> arr(N);
+	vector<vector<int>> maxNumberArr(N);
+	for (int i = 0; i < N; i++) {
+		arr[i] = vector<int>(pow(2, i + 1));
+		maxNumberArr[i] = vector<int>(pow(2, i + 1));
+	}
 
-	data[0] = tempData;
-	tempData.clear();
-
-	tempMaxData.push_back(0);
-	tempMaxData.push_back(arr[0]);
+	arr[0][0] = 0;
+	arr[0][1] = 1;
+	maxNumberArr[0][1] = numberArr[0];
 	
-	maxData[0] = tempMaxData;
-	tempMaxData.clear();
-
-	// BottomUp
 	for (int i = 1; i < N; i++) {
 		for (int j = 0; j < pow(2, i + 1); j++) {
-
 			if (j % 2 == 0) {
-				tempMaxData.push_back(maxData[i - 1][j / 2]);
-				tempData.push_back(data[i - 1][j / 2]);
+				arr[i][j] = arr[i - 1][j / 2];
+				maxNumberArr[i][j] = maxNumberArr[i - 1][j / 2];
+			}
+			else if (maxNumberArr[i - 1][j / 2] < numberArr[i]) {
+				arr[i][j] = arr[i - 1][j / 2] + 1;
+				maxNumberArr[i][j] = numberArr[i];
 			}
 			else {
-				if (maxData[i - 1][j / 2] < arr[i]) {
-					tempMaxData.push_back(arr[i]);
-					tempData.push_back(data[i - 1][j / 2] + 1);
-				}
-				else {
-					tempMaxData.push_back(maxData[i - 1][j / 2]);
-					tempData.push_back(data[i - 1][j / 2]);
-				}
+				arr[i][j] = arr[i - 1][j / 2];
+				maxNumberArr[i][j] = maxNumberArr[i - 1][j / 2];
 			}
 		}
-
-		maxData[i] = tempMaxData;
-		data[i] = tempData;
-
-		tempMaxData.clear();
-		tempData.clear();
 	}
-	
-	int max = *max_element(data[N - 1].begin(), data[N - 1].end());
-	cout << max;
+
+	int result = 0;
+	int tempMax = 0;
+	for (int i = 0; i < N; i++) {
+		tempMax = *max_element(arr[i].begin(), arr[i].end());
+		if (tempMax > result)
+			result = tempMax;
+	}
+
+	cout << tempMax;
 
 	return 0;
 }
