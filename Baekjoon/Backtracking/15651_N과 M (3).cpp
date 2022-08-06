@@ -12,7 +12,7 @@ void printArr(int arr[]) {
 	for (int i = 0; i < M; i++) {
 		cout << arr[i] << ' ';
 	}
-	cout << endl;
+	cout << '\n';
 }
 
 void DFS(int count) {
