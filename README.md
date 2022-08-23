@@ -2,6 +2,7 @@
 
 #### Commit Message
 + [목적] 문제 번호 문제 이름
++ [목적] LEVEL 문제 이름
 
 <br>목적은 Add, Update 2가지 사용
 
