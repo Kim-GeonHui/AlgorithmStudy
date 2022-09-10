@@ -11,12 +11,16 @@
 
 ## Error
 
-### C++
+### Baekjoon
 
 - #### DP
 + 1463 | 1로 만들기 | BottomUp
 + 2252 | 합분해 |
 + 11053 | 가장 긴 증가하는 부분 수열 | 메모리 초과
 
-### JS
+### LeetCode
++ 9 | Palindrome Number | 개선 필요
+
+### Programmers
 + JadenCase 문자열 만들기
+
