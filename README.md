@@ -20,7 +20,7 @@
 
 ### LeetCode
 + 9 | Palindrome Number | 개선 필요
++ 20 | Valid Parentheses | Run time 개선 필요
 
 ### Programmers
 + JadenCase 문자열 만들기
-
