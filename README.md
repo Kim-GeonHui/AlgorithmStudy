@@ -25,6 +25,7 @@
 + 66 | Plus One | Memory Usage 향상 필요
 + 119 | Pascal's Triangle2 | 향상 필요
 + 136 | Single Number | Run time 향상 필요
++ 169 | Majority Element | Memory Usage 향상 필요
 
 ### Programmers
 + JadenCase 문자열 만들기
