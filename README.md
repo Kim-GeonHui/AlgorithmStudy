@@ -9,7 +9,7 @@
 ## File Name
 + 문제 번호_문제 이름
 
-## Error
+## Issue
 
 ### Baekjoon
 
@@ -19,8 +19,9 @@
 + 11053 | 가장 긴 증가하는 부분 수열 | 메모리 초과
 
 ### LeetCode
-+ 9 | Palindrome Number | 개선 필요
-+ 20 | Valid Parentheses | Run time 개선 필요
++ 9 | Palindrome Number | 향상 필요
++ 20 | Valid Parentheses | Run time 향상 필요
++ 35 | Search Insert Position | 향상 필요
 
 ### Programmers
 + JadenCase 문자열 만들기
