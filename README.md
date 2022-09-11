@@ -18,16 +18,5 @@
 + 2252 | 합분해 |
 + 11053 | 가장 긴 증가하는 부분 수열 | 메모리 초과
 
-### LeetCode
-+ 9 | Palindrome Number | 향상 필요
-+ 20 | Valid Parentheses | Run time 향상 필요
-+ 35 | Search Insert Position | 향상 필요
-+ 66 | Plus One | Memory Usage 향상 필요
-+ 119 | Pascal's Triangle2 | 향상 필요
-+ 136 | Single Number | Run time 향상 필요
-+ 169 | Majority Element | Memory Usage 향상 필요
-+ 171 | Excel Sheet Column Number | 향상 필요
-+ 191 | Number of 1 Bits | 향상 필요
-
 ### Programmers
 + JadenCase 문자열 만들기
