@@ -143,10 +143,8 @@ int Deque::pop_back() {
 
 	int answer = tail->value;
 	Node* node = tail;
-	if (length != 1) {
-		tail = node->front;
-		tail->next = nullptr;
-	}
+	tail = node->front;
+	node = nullptr;
 	delete node;
 	length--;
 
