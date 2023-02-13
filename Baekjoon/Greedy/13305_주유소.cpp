@@ -11,20 +11,17 @@ int main() {
 	cin.tie(NULL);
 
 	int N;
-	cin >> N;
-	vector<long long> street(N - 1);
-	vector<long long> oil(N);
-	for (int i = 0; i < N - 1; i++) cin >> street[i];
-	for (int i = 0; i < N; i++) cin >> oil[i];
-
-	int last = N - 1;
+	int idx = 0;
+	int min = 1000000000;
 	long long ans = 0;
-	int idx;
-
-	while (last > 0) {
-		idx = min_element(oil.begin(), oil.begin() + last) - oil.begin();
-		for (int i = idx; i < last; i++) ans += street[i] * oil[idx];
-		last = idx;
+	cin >> N;
+	vector<int> street(N - 1);
+	for (int i = 0; i < N - 1; i++) cin >> street[i];
+	vector<int> oil(N);
+	for (int i = 0; i < N - 1; i++) {
+		cin >> oil[i];
+		if (oil[i] < min) min = oil[i];
+		ans += (long long)min * (long long)street[i];
 	}
 
 	cout << ans;
